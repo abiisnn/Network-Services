@@ -1,0 +1,24 @@
+1. Crear nueva máquina virtual:
+2. Tiny Core: Linux 2.6 / 3.x/ 4.x (32 bits)
+3. Tamaño de memoria: 150 MB
+4. Crear  un disco duro virtual
+5. VDI (VirtualBox Disk Image)
+6. Tamaño fijo
+7. Minimo 8 GB
+8. Ir a la configuración:
+	- Sistema:
+		Procesador
+			Activación PAE
+		Aceleración
+			Activar VTX-A/AMD-V
+	- Almacenamiento - ISO
+		Controller IDE 
+			Disco ---> ISO
+	- Sistema : Optica	/ Disco Duro/ Disquete / Red
+
+9. Instalar todoooo dentro de la misma distribución para no usar ISO
+10. Instalar Minimal igual XD
+11. Edit / Preferences/ VirtualBox/ VirtualBox VMs 
+12. New ---> Agregar las maquinas virtuales ya instaladas
+13. Configurar en VB:
+	Red/ Conectado a: No conectado
