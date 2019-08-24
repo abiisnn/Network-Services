@@ -23,6 +23,8 @@ Ra:
 	network  40.0.0.0 // Redes a las que esta conectado
 	network 200.1.1.0
 	exit
+	exit
+	wr
 Rb:
 	ip route // Solo tengo una red 
 	conf t
@@ -30,6 +32,8 @@ Rb:
 	version 2
 	network 40.0.0.0
 	exit
+	exit 
+	wr
 
 Rc:
 	conf t
@@ -38,6 +42,8 @@ Rc:
 	network 40.0.0.0
 	network 200.1.1.0
 	exit
+	exit
+	wr
 
 // Si no lo hago orientado a clases no pasa nada
 
@@ -48,6 +54,9 @@ Rd:
 	network 40.0.0.0
 	network 200.1.1.0
 	exit
+	exit
+	wr
+
 
 Re: 
 	conf t
@@ -56,6 +65,8 @@ Re:
 	network 40.0.0.0
 	network 200.1.1.0
 	exit
+	exit 
+	wr
 
 // Cada router tiene su propia configuración
 // Estamos levantando la configuración de RIP en cada uno
@@ -81,28 +92,41 @@ Rd:
 	router rip
 	no auto-summary
 	exit
+	exit
+	wr
+
 Ra:
 	conf t
 	router rip
 	no auto-summary
 	exit
+	exit
+	wr
 
 Rb:
 	conf t
 	router rip
 	no auto-summary
 	exit
+	exit
+	wr
 
 Rc:
 	conf t
 	router rip
 	no auto-summary
 	exit
+	exit
+	wr
+
 Re:
 	conf t
 	router rip
 	no auto-summary
 	exit
+	exit
+	wr
+
 Rd:
 	show ip route
 	// Ahora ya sale por una sola de las interfaces
@@ -124,6 +148,9 @@ Ra:
 	router rip
 	passive-interface fastEthernet 2/0
 	exit
+	exit
+	wr
+
 	// Esa interface es pasiva, por ahí no enviara tramas.
 	// Todas las que van a las conputadoras
 
@@ -132,26 +159,35 @@ Rc:
 	router rip
 	passive-interface fastEthernet 2/0
 	exit
+	exit
+	wr
+
 
 Rd:
 	conf t 
 	router rip
 	passive-interface fastEthernet 2/0
 	exit
+	exit
+	wr
+
 
 // Filtro en wireshark: Rip, dejo de capturar tramas RIP
 
 	Si mi router de frontera es el D, eso significa que por ahí 	va a salir TODO, si quiero ir a una LAN que no esta en los routers entonces debe salir por la D.
 	// Captura entre ra y rb
 Rd:	
+	conf ter
 	router rip
 	default-information originate
 	exit
-
+	exit
+	wr
 Ra:
 	show ip route
 	// En la tabla de enrutamiento se agrego una dirección por defecto.
-	
+
+--------------------------------------------------
 // Agregar router Rf
 
 // Agregar switch y una PC virtual

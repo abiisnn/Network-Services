@@ -1,0 +1,197 @@
+Configuracion básica:
+* Configurar RIPVv1
+	- Activar el protocolo RIPv1
+		router rip
+	- Anunciar redes
+		network<dirección de red>
+
+
+Router b:
+sh ip int bri
+
+---- Después de poner toda la topologia
+---- Configurar RIP
+// No se anuncian todas las redes, solo al as que tiene 
+conecta
+Ra:
+	Show ip route // Ver tabla de enrutamiento
+	show ip interface
+	enable
+	conf t
+	router rip
+	version 2
+	network  40.0.0.0 // Redes a las que esta conectado
+	network 200.1.1.0
+	exit
+	exit
+	wr
+Rb:
+	ip route // Solo tengo una red 
+	conf t
+	router rip
+	version 2
+	network 40.0.0.0
+	exit
+	exit 
+	wr
+
+Rc:
+	conf t
+	router rip
+	version 2
+	network 40.0.0.0
+	network 200.1.1.0
+	exit
+	exit
+	wr
+
+// Si no lo hago orientado a clases no pasa nada
+
+Rd: 
+	conf t
+	router rip
+	version 2
+	network 40.0.0.0
+	network 200.1.1.0
+	exit
+	exit
+	wr
+
+
+Re: 
+	conf t
+	router rip
+	version 2
+	network 40.0.0.0
+	network 200.1.1.0
+	exit
+	exit 
+	wr
+
+// Cada router tiene su propia configuración
+// Estamos levantando la configuración de RIP en cada uno
+
+¿Qué paso?
+Ra:
+	show ip route 
+	// Ya tengo renglones generados por el protocolo RIP
+	// Si quiero llegar a la 40.1.2.4 debo ir por la f0/0
+	// A dónde voy, vía: Pasa por la 40.1.2.2 , tiempos, Interface
+	// Necesita dos datos porque puede ser que para poder llegar a otra LAN, debo atravesar otra. 
+	// Por dónde salir y por dónde brincar :D
+	// Para llegar a la 40.1.2.8 tengo dos vías.
+	// Costo administrativo en RIP: 120
+	// Número de saltos es la métrica en este protocolo
+	// RIP hace balanceo de carga 
+
+Rd:
+	show ip route
+	// Desde el router D puedo ir a la 200.1.1.0/24 con un costo de 1, via 40.1.2.21 desde las interfaces Fa0/1 y Fa0/0
+	// No hay manera de llegar por la fa1/0 con un salto, sucede debido a que RIP trabaja con orientación a clases, entonces para RIP, la 200.0.1.1 son las 4 que hay en general, para evitar eso, se le dice a RIP que no sumarice las subredes, es decir, que no haga un subneteo, que no las junte.
+	conf t
+	router rip
+	no auto-summary
+	exit
+	exit
+	wr
+
+Ra:
+	conf t
+	router rip
+	no auto-summary
+	exit
+	exit
+	wr
+
+Rb:
+	conf t
+	router rip
+	no auto-summary
+	exit
+	exit
+	wr
+
+Rc:
+	conf t
+	router rip
+	no auto-summary
+	exit
+	exit
+	wr
+
+Re:
+	conf t
+	router rip
+	no auto-summary
+	exit
+	exit
+	wr
+
+Rd:
+	show ip route
+	// Ahora ya sale por una sola de las interfaces
+	show ip protocols 
+	// Da información sobre cómo esta configurado el protocolo RIP, se ve que la summarization is not in effect.
+
+
+// No se que vamos a hacer
+	Click derecho en una conexión y se abre wireshark
+	Lo que esta en rojo es un RIPv2
+	Cada 30 segundos, RIP envia sus tablas de enrutamiento
+	Vector distancia
+
+Rd:
+	show ip route
+
+Ra:
+	conf t 
+	router rip
+	passive-interface fastEthernet 2/0
+	exit
+	exit
+	wr
+
+	// Esa interface es pasiva, por ahí no enviara tramas.
+	// Todas las que van a las conputadoras
+
+Rc:
+ 	conf t 
+	router rip
+	passive-interface fastEthernet 2/0
+	exit
+	exit
+	wr
+
+
+Rd:
+	conf t 
+	router rip
+	passive-interface fastEthernet 2/0
+	exit
+	exit
+	wr
+
+
+// Filtro en wireshark: Rip, dejo de capturar tramas RIP
+
+	Si mi router de frontera es el D, eso significa que por ahí 	va a salir TODO, si quiero ir a una LAN que no esta en los routers entonces debe salir por la D.
+	// Captura entre ra y rb
+Rd:	
+	conf ter
+	router rip
+	default-information originate
+	exit
+	exit
+	wr
+Ra:
+	show ip route
+	// En la tabla de enrutamiento se agrego una dirección por defecto.
+
+--------------------------------------------------
+// Agregar router Rf
+
+// Agregar switch y una PC virtual
+// Conecto Re con Rf por
+
+Rf:
+	
