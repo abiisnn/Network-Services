@@ -1,0 +1,174 @@
+MAQUINAS:
+	PC-1
+		ip 172.16.1.66 /26 172.16.1.65 
+	PC-2
+		ip 172.16.1.130 /26 172.16.1.129
+	PC-3
+		ip 172.16.40.3 /24 172.16.40.1
+	PC-4
+		ip 172.16.40.2 /24 172.16.40.1
+	PC-WEB
+		ip 172.16.100.2 /24 172.16.100.1
+	PC-DNS
+		ip 172.16.100.3 /24 172.16.100.1
+R1
+	enable
+	config t
+	interface f0/0 
+	ip add 172.16.1.65 255.255.255.192
+	no shutdown
+	exit
+	interface f4/0 
+	ip add 172.16.1.5 255.255.255.252
+	no shutdown
+	exit
+	interface f5/0 
+	ip add 172.16.1.1 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R2
+	enable
+	config t
+	interface f0/0 
+	ip add 172.16.1.129 255.255.255.192
+	no shutdown
+	exit
+	interface f4/0 
+	ip add 172.16.1.17 255.255.255.252
+	no shutdown
+	exit
+	interface f5/0 
+	ip add 172.16.1.2 255.255.255.252
+	no shutdown
+	exit
+	interface f6/0 
+	ip add 172.16.1.9 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R3
+	enable
+	config t
+	interface f0/0 
+	ip add 172.16.40.1 255.255.255.0
+	no shutdown
+	exit
+	interface f4/0 
+	ip add 172.16.1.18 255.255.255.252
+	no shutdown
+	exit
+	interface f5/0 
+	ip add 172.16.1.22 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R4
+	enable
+	config t
+	interface f4/0 
+	ip add 172.16.1.6 255.255.255.252
+	no shutdown
+	exit
+	interface f5/0 
+	ip add 172.16.1.13 255.255.255.252
+	no shutdown
+	exit
+	interface f6/0 
+	ip add 172.16.1.21 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R5
+	enable
+	config t
+	interface f0/0 
+	ip add 172.16.100.1 255.255.255.0
+	no shutdown
+	exit
+	interface f4/0 
+	ip add 172.16.1.10 255.255.255.252
+	no shutdown
+	exit
+	interface f5/0 
+	ip add 172.16.1.14 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+
+---------------- RIP
+R1 
+	Show ip route
+	show ip interface
+	enable
+	conf t
+	router rip
+	version 2
+	passive-int fa0/0
+	network  172.16.0.0
+	no auto-summary
+	exit
+	exit
+	wr
+R2 
+	Show ip route
+	show ip interface
+	enable
+	conf t
+	router rip
+	version 2
+	passive-int fa0/0
+	network  172.16.0.0
+	no auto-summary
+	exit
+	exit
+	wr
+R3
+	show ip route
+	show ip interface
+	enable
+	conf t
+	router rip
+	version 2
+	passive-int fa0/0
+	network  172.16.0.0
+	no auto-summary
+	exit
+	exit
+	wr
+R4
+	show ip route
+	show ip interface
+	enable
+	conf t
+	router rip
+	version 2
+	passive-int fa0/0
+	network  172.16.0.0
+	no auto-summary
+	exit
+	exit
+	wr
+R5
+	Show ip route
+	show ip interface
+	enable
+	conf t
+	router rip
+	version 2
+	passive-int fa0/0
+	network  172.16.0.0
+	no auto-summary
+	exit
+	exit
+	wr

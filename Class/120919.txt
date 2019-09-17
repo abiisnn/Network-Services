@@ -1,0 +1,20 @@
+// Configurar de la 0 a la 4
+
+SW1
+	conf t
+	inter range fastEthernet 0/0 - 3
+	?
+	channel-group 1 mode on
+	exit
+
+	conf t
+	int port-channel 1
+	mode trunk
+
+SW2
+	conf t
+	inter range fastEthernet 0/0 - 3
+	channel-group 1 mode on
+	exit
+	show ip int br
+
