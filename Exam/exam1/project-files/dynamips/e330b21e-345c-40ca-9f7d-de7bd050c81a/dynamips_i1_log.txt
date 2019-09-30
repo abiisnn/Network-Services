@@ -1,0 +1,56 @@
+Sep 17 15:02:17.328 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Sep 17 15:02:17.332 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 58965.
+Sep 17 15:02:17.392 HYPERVISOR: exec_cmd: hypervisor version 
+Sep 17 15:02:17.400 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips 
+Sep 17 15:02:17.704 GENERAL: working_dir=C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips
+Sep 17 15:02:17.708 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips\e330b21e-345c-40ca-9f7d-de7bd050c81a 
+Sep 17 15:02:17.708 GENERAL: working_dir=C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips\e330b21e-345c-40ca-9f7d-de7bd050c81a
+Sep 17 15:02:17.712 HYPERVISOR: exec_cmd: vm create R1 1 c3600 
+Sep 17 15:02:17.756 VM: VM R1 created.
+Sep 17 15:02:17.756 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5000 
+Sep 17 15:02:17.756 HYPERVISOR: exec_cmd: c3600 get_mac_addr R1 
+Sep 17 15:02:17.760 HYPERVISOR: exec_cmd: c3600 set_chassis R1 3660 
+Sep 17 15:02:17.760 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Sep 17 15:02:17.764 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.772 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x606071f8 
+Sep 17 15:02:17.780 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/27AGO2019/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Sep 17 15:02:17.784 HYPERVISOR: exec_cmd: c3600 set_mac_addr R1 cc01.4a60.0000 
+Sep 17 15:02:17.868 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Sep 17 15:02:17.868 HYPERVISOR: exec_cmd: vm set_ram R1 192 
+Sep 17 15:02:17.868 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.872 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 NM-4T 
+Sep 17 15:02:17.872 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.872 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 NM-1FE-TX 
+Sep 17 15:02:17.876 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.876 HYPERVISOR: exec_cmd: vm slot_add_binding R1 3 0 NM-4T 
+Sep 17 15:02:17.876 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.876 HYPERVISOR: exec_cmd: vm slot_add_binding R1 4 0 NM-4T 
+Sep 17 15:02:17.880 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.880 HYPERVISOR: exec_cmd: vm slot_add_binding R1 5 0 NM-4T 
+Sep 17 15:02:17.880 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:17.888 HYPERVISOR: exec_cmd: vm slot_add_binding R1 6 0 NM-4T 
+Sep 17 15:02:28.840 HYPERVISOR: exec_cmd: nio create_udp udp-cdd81d14-423d-4817-82a9-fe08b7fa1bfb 10020 127.0.0.1 10021 
+Sep 17 15:02:29.148 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 0 udp-cdd81d14-423d-4817-82a9-fe08b7fa1bfb 
+Sep 17 15:02:29.148 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:33.868 HYPERVISOR: exec_cmd: nio create_udp udp-1e3b321c-edb5-4be9-af0e-b2f7ceb50616 10066 127.0.0.1 10067 
+Sep 17 15:02:33.880 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 3 0 udp-1e3b321c-edb5-4be9-af0e-b2f7ceb50616 
+Sep 17 15:02:33.880 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:02:34.268 HYPERVISOR: exec_cmd: nio create_udp udp-90e60d43-8e52-4424-b857-954331b55f3e 10074 127.0.0.1 10075 
+Sep 17 15:02:34.280 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 4 0 udp-90e60d43-8e52-4424-b857-954331b55f3e 
+Sep 17 15:02:34.280 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:03:32.279 HYPERVISOR: exec_cmd: vm create Ghost 0 c3600 
+Sep 17 15:03:32.279 VM: VM Ghost created.
+Sep 17 15:03:32.279 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/27AGO2019/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Sep 17 15:03:32.279 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Sep 17 15:03:32.279 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost 'C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips\c3660-a3jk9s-mz.124-25d.image-192.ghost' 
+Sep 17 15:03:32.294 HYPERVISOR: exec_cmd: vm set_ram Ghost 192 
+Sep 17 15:03:32.294 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Sep 17 15:03:32.294 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Sep 17 15:03:32.294 HYPERVISOR: exec_cmd: vm start Ghost 
+Sep 17 15:03:32.654 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Sep 17 15:03:32.904 VM: VM Ghost shutdown.
+Sep 17 15:03:32.904 VM: VM Ghost destroyed.
+Sep 17 15:03:32.919 HYPERVISOR: exec_cmd: vm get_status R1 
+Sep 17 15:03:32.935 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Sep 17 15:03:32.935 HYPERVISOR: exec_cmd: vm start R1 
+Sep 17 15:04:03.621 HYPERVISOR: exec_cmd: vm extract_config R1 

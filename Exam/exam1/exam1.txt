@@ -199,3 +199,110 @@ R31
 	exit
 	wr
 	show ip int bri
+
+-------------------------
+show ip int bri
+R1
+	enable
+	conf t
+	router ospf 1
+	network 200.200.200.232 0.0.0.3 area 0
+	network 200.200.200.236 0.0.0.3 area 0
+	network 200.200.200.244 0.0.0.3 area 1
+	exit
+	exit
+	wr
+R2
+	enable
+	conf t
+	router ospf 1
+	network 200.200.200.232 0.0.0.3 area 0
+	network 200.200.200.240 0.0.0.3 area 0
+	network 200.200.200.248 0.0.0.3 area 2
+	exit
+	exit
+	wr
+R3
+	enable
+	conf t
+	router ospf 1
+	network 200.200.200.236 0.0.0.3 area 0
+	network 200.200.200.240 0.0.0.3 area 0
+	network 200.200.200.252 0.0.0.3 area 3
+	exit
+	exit
+	wr
+
+R11
+	enable
+	conf t
+	router ospf 1
+	network 200.200.200.244 0.0.0.3 area 1
+	network 200.200.200.192 0.0.0.15 area 1
+	network 200.200.200.208 0.0.0.7 area 1
+	network 200.200.200.216 0.0.0.7 area 1
+	network 200.200.200.224 0.0.0.7 area 1
+	exit
+	exit
+	wr
+R21
+	enable
+	conf t
+	router ospf 1
+	network 200.200.200.248 0.0.0.3 area 2
+	network 200.200.200.64 0.0.0.31 area 2
+	network 200.200.200.96 0.0.0.31 area 2
+	exit
+	exit
+	wr
+
+R31
+	enable
+	conf t
+	router ospf 1
+	network 200.200.200.252 0.0.0.3 area 3
+	network 200.200.200.128 0.0.0.31 area 3
+	network 200.200.200.160 0.0.0.31 area 3
+	network 200.200.200.0 0.0.0.63 area 3
+	exit
+	exit
+	wr
+-------
+Salida:
+R2
+	enable
+	conf t
+	ip route 0.0.0.0 0.0.0.0 loopback 0
+	router ospf 1
+	default-information originate
+	exit
+	exit
+	wr
+	show ip route
+--------- STATIC
+R11
+	enable 
+	conf t
+	ip route 0.0.0.0 0.0.0.0 200.200.200.246
+	exit
+	enable 
+	conf t
+	router ospf 1
+	redistribute static subnets
+	exit
+	exit
+	wr
+
+R1
+	enable 
+	conf t
+	ip route 200.200.200.224 255.255.255.248 200.200.200.225
+	ip route 200.200.200.224 255.255.255.248 200.200.200.245
+	router ospf 1
+	redistribute static subnets
+	exit 
+	exit
+	wr
+
+
+

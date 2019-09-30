@@ -1,0 +1,59 @@
+Sep 17 15:02:20.623 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Sep 17 15:02:20.627 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 59016.
+Sep 17 15:02:21.058 HYPERVISOR: exec_cmd: hypervisor version 
+Sep 17 15:02:21.062 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips 
+Sep 17 15:02:21.062 GENERAL: working_dir=C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips
+Sep 17 15:02:21.066 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips\9edb655f-b84f-4589-8667-e43a5ee33fab 
+Sep 17 15:02:21.230 GENERAL: working_dir=C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips\9edb655f-b84f-4589-8667-e43a5ee33fab
+Sep 17 15:02:21.230 HYPERVISOR: exec_cmd: vm create R31 6 c3600 
+Sep 17 15:02:21.250 VM: VM R31 created.
+Sep 17 15:02:21.250 HYPERVISOR: exec_cmd: vm set_con_tcp_port R31 5005 
+Sep 17 15:02:21.254 HYPERVISOR: exec_cmd: c3600 get_mac_addr R31 
+Sep 17 15:02:21.254 HYPERVISOR: exec_cmd: c3600 set_chassis R31 3660 
+Sep 17 15:02:21.258 HYPERVISOR: exec_cmd: vm set_exec_area R31 64 
+Sep 17 15:02:21.258 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.258 HYPERVISOR: exec_cmd: vm set_idle_pc R31 0x606071f8 
+Sep 17 15:02:21.266 HYPERVISOR: exec_cmd: vm set_ios R31 C:/Users/27AGO2019/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Sep 17 15:02:21.266 HYPERVISOR: exec_cmd: c3600 set_mac_addr R31 cc06.28f4.0000 
+Sep 17 15:02:21.266 HYPERVISOR: exec_cmd: vm set_nvram R31 256 
+Sep 17 15:02:21.266 HYPERVISOR: exec_cmd: vm set_ram R31 192 
+Sep 17 15:02:21.270 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.270 HYPERVISOR: exec_cmd: vm slot_add_binding R31 1 0 NM-1FE-TX 
+Sep 17 15:02:21.270 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.270 HYPERVISOR: exec_cmd: vm slot_add_binding R31 2 0 NM-1FE-TX 
+Sep 17 15:02:21.274 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.274 HYPERVISOR: exec_cmd: vm slot_add_binding R31 3 0 NM-1FE-TX 
+Sep 17 15:02:21.274 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.274 HYPERVISOR: exec_cmd: vm slot_add_binding R31 4 0 NM-1FE-TX 
+Sep 17 15:02:21.274 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.278 HYPERVISOR: exec_cmd: vm slot_add_binding R31 5 0 NM-1FE-TX 
+Sep 17 15:02:21.278 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:21.278 HYPERVISOR: exec_cmd: vm slot_add_binding R31 6 0 NM-1FE-TX 
+Sep 17 15:02:31.729 HYPERVISOR: exec_cmd: nio create_udp udp-912a08ad-fc83-4b11-ac2e-6ffb8a3caffa 10044 127.0.0.1 10045 
+Sep 17 15:02:32.033 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R31 3 0 udp-912a08ad-fc83-4b11-ac2e-6ffb8a3caffa 
+Sep 17 15:02:32.033 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:32.249 HYPERVISOR: exec_cmd: nio create_udp udp-1272b79f-4b36-428e-8272-7a1d44167541 10048 127.0.0.1 10049 
+Sep 17 15:02:32.261 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R31 2 0 udp-1272b79f-4b36-428e-8272-7a1d44167541 
+Sep 17 15:02:32.261 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:32.521 HYPERVISOR: exec_cmd: nio create_udp udp-e7a2a462-2fb2-4bcc-b0bd-de507c622e16 10052 127.0.0.1 10053 
+Sep 17 15:02:32.529 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R31 1 0 udp-e7a2a462-2fb2-4bcc-b0bd-de507c622e16 
+Sep 17 15:02:32.529 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:02:32.808 HYPERVISOR: exec_cmd: nio create_udp udp-fd614f07-641a-40e7-9c74-0ee1f29ee935 10056 127.0.0.1 10057 
+Sep 17 15:02:32.820 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R31 0 1 udp-fd614f07-641a-40e7-9c74-0ee1f29ee935 
+Sep 17 15:02:32.820 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:03:34.232 HYPERVISOR: exec_cmd: vm create Ghost 0 c3600 
+Sep 17 15:03:34.232 VM: VM Ghost created.
+Sep 17 15:03:34.232 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/27AGO2019/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Sep 17 15:03:34.232 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Sep 17 15:03:34.232 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost 'C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Exam\Exam1\project-files\dynamips\c3660-a3jk9s-mz.124-25d.image-192.ghost' 
+Sep 17 15:03:34.247 HYPERVISOR: exec_cmd: vm set_ram Ghost 192 
+Sep 17 15:03:34.247 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Sep 17 15:03:34.247 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Sep 17 15:03:34.247 HYPERVISOR: exec_cmd: vm start Ghost 
+Sep 17 15:03:34.450 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Sep 17 15:03:34.482 VM: VM Ghost shutdown.
+Sep 17 15:03:34.482 VM: VM Ghost destroyed.
+Sep 17 15:03:34.497 HYPERVISOR: exec_cmd: vm get_status R31 
+Sep 17 15:03:34.497 HYPERVISOR: exec_cmd: vm set_config R31 configs\i6_startup-config.cfg 
+Sep 17 15:03:34.497 HYPERVISOR: exec_cmd: vm start R31 
+Sep 17 15:04:16.169 HYPERVISOR: exec_cmd: vm extract_config R31 

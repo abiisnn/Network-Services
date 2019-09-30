@@ -8,10 +8,10 @@
     "revision": 8,
     "scene_height": 1000,
     "scene_width": 2000,
-    "show_grid": false,
-    "show_interface_labels": true,
+    "show_grid": true,
+    "show_interface_labels": false,
     "show_layers": false,
-    "snap_to_grid": false,
+    "snap_to_grid": true,
     "supplier": null,
     "topology": {
         "computes": [],
@@ -1370,7 +1370,7 @@
                 "symbol": ":/symbols/router.svg",
                 "width": 66,
                 "x": -90,
-                "y": -248,
+                "y": -246,
                 "z": 0
             },
             {
