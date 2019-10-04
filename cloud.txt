@@ -1,0 +1,35 @@
+------- DHCP
+R1:
+enable
+conf ter
+interface f0/0
+ip address dhcp
+no sh
+do wr
+
+interface f0/1
+ip address 172.16.1.1 255.255.255.0
+no sh
+do wr
+ip dhcp pool lan1
+network 172.16.1.0 255.255.255.0
+default-router 172.16.1.1
+ip dhcp excluded-address 172.16.1.1 172.16.1.11
+wr
+
+access-list 1 permit 172.16.1.0 0.0.0.255
+ip nat inside source list 1 interface f0/0 overload
+
+interface f0/0
+ip nat outside
+no sh
+do wr
+interface f0/1
+ip nat inside
+no sh
+do wr
+
+
+
+---- Computadora terminal
+ipconfig
