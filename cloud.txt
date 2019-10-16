@@ -1,3 +1,4 @@
+Descargar Router: c2691
 ------- DHCP
 R1:
 enable
@@ -12,11 +13,10 @@ ip address 172.16.1.1 255.255.255.0
 no sh
 do wr
 
-
 ip dhcp pool lan1
 network 172.16.1.0 255.255.255.0
 default-router 172.16.1.1
-// ip dhcp excluded-address 172.16.1.1 172.16.1.11
+ip dhcp excluded-address 172.16.1.1 172.16.1.11
 do wr
 
 access-list 1 permit 172.16.1.0 0.0.0.255
@@ -31,5 +31,9 @@ ip nat inside
 no sh
 do wr
 
----- Computadora terminal
-ipconfig
+---- Computadora
+Asignar ip: 172.16.1.13 /24 255.255.255.0
+ping 172.16.1.1
+ping 8.8.8.8
+ip dns 148.204.103.2
+ping www.google.com
