@@ -1,0 +1,63 @@
+// Net-snmp en Manjaro
+
+----------------------------------------------
+------------ OPTION 1 Install ----------------
+----------------------------------------------
+// Reference: https://snapcraft.io/install/net-snmp/manjaro
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+
+// Log out and restart system
+
+sudo snap install net-snmp
+
+----------------------------------------------
+------------ OPTION 2 Install ----------------
+----------------------------------------------
+sudo pacman -S net-snmp
+
+
+----------------------------------------------
+----------------------------------------------
+----------------------------------------------
+// Lanzar archivo log de lo que esta ocurriendo
+// Puede decir que el "demonio" esta desactivado
+systemctl status snmpd
+
+// Configuración básica
+cd /etc/snmp
+ls
+// Abrir el nombre del archivo que aparece:
+sudo nano snmpd.con
+
+// Modificar con permisos de super usuario
+// Defino comunidad, defino permisos y ligo la comunidad
+// Crear comunidad de solo lectura, llamada ro_4CM1
+rocommunity ro_4CM1
+
+// Crear comunidad de lectura y escritura, llamada rw_4CM1
+rwcommunity rw_4CM1
+
+// Levantar el "demonio"
+systemctl start snmpd
+systemctl status snmpd
+
+// Ya debe estar corriendo
+
+
+----------------------------------------------
+------------------ CONSULTA ------------------
+----------------------------------------------
+
+// Hacer GET
+// Lee una rama
+snmpwalk -v 1 -c ro_4CM1 127.0.0.1
+// snmpwalk -v 1 -c ro_4CM1 127.0.0.1 | less
+// Muestra toda la MIB que esta en la máquina virtual
+
+//
+snmpget
+snmpset
+
+snmpwalk -v 2c rw_4CM1 127.0.0.1
