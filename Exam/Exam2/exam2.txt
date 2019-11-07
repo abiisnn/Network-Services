@@ -1,0 +1,151 @@
+MAQUINAS:
+PC-1:
+	ip 192.168.30.10 /24 192.168.30.10
+PC-2:
+	ip 192.168.40.10 /24 192.168.40.1
+PC-3:
+	ip 30.30.30.2 /24 30.30.30.1
+
+
+
+R1:
+	enable
+	config t
+	interface f0/0 
+	ip add 20.20.20.25 255.255.255.252
+	no shutdown
+	exit
+	interface f1/0
+	ip add 20.20.20.2 255.255.255.252
+	no shutdown
+	exit
+	interface f1/1
+	ip add 20.20.20.5 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R2:
+	enable
+	config t
+	interface f0/0
+	ip add 20.20.20.18 255.255.255.248
+	no shutdown
+	exit
+	interface f0/1
+	ip add 192.168.20.1 255.255.255.0
+	no shutdown
+	exit
+	interface f1/0
+	ip add 20.20.20.10 255.255.255.252
+	no shutdown
+	exit
+	interface f1/1
+	ip add 20.20.20.13 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R3:
+	enable
+	config t
+	interface f0/0
+	ip add 192.168.40.1 255.255.255.0
+	no shutdown
+	exit
+	interface f1/0
+	ip add 20.20.20.14 255.255.255.252 
+	no shutdown
+	exit
+	interface f1/1
+	ip add 20.20.20.1 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R4:
+	enable
+	config t
+	interface f0/0
+	ip add 192.168.30.1 255.255.255.0
+	no shutdown
+	exit
+	interface f1/0 
+	ip add 20.20.20.6 255.255.255.252
+	no shutdown
+	exit
+	interface f1/1
+	ip add 20.20.20.9 255.255.255.252
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+R5:
+	enable
+	config t
+	interface f0/0
+	ip add 30.30.30.1 255.255.255.0
+	no shutdown
+	exit
+	interface f0/1
+	ip add 20.20.20.17 255.255.255.248
+	no shutdown
+	exit
+	exit
+	wr
+	show ip int bri
+---------------------------------------------
+OSPF
+R1
+	enable
+	conf t
+	router ospf 1
+	network 20.20.20.24 0.0.0.3	area 1
+	network 20.20.20.0 0.0.0.3 area 0
+	network 20.20.20.4 0.0.0.3 area 0     
+	exit
+	exit
+	wr
+R2
+	enable
+	conf t
+	router ospf 1
+	network 20.20.20.16 0.0.0.7 area 5
+	network 192.168.20.0 0.0.0.255 area 1
+	network 20.20.20.8 0.0.0.3 area 0
+	network 20.20.20.12 0.0.0.3 area 0
+	exit
+	exit
+	wr
+R3
+	enable
+	conf t
+	router ospf 1
+	network 192.168.40.0 0.0.0.255 area 2
+	network 20.20.20.12 0.0.0.3 area 0
+	network 20.20.20.0 0.0.0.3 area 0
+	exit
+	exit
+	wr
+R4
+	enable
+	conf t
+	router ospf 1
+	network 192.168.30.0 0.0.0.255 area 4
+	network 20.20.20.4 0.0.0.3 area 0
+	network 20.20.20.8 0.0.0.3 area 0
+	exit
+	exit
+	wr
+R5	
+	enable
+	conf t
+	router ospf 1
+	network 20.20.20.16 0.0.0.7 area 5
+	exit
+	exit
+	wr

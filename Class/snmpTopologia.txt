@@ -1,0 +1,131 @@
+// Crear topologia.
+
+// Configurar el router:
+int fa 1/0
+ip add 192.168.20.1 255.255.255.0
+no sh
+int fa 0/0
+ip add 192.168.10.1 255.255.255.0
+
+
+// Configurar conexión en Manjaro.
+
+// HOST 20.10
+cd  /etc/snmp
+ls
+sudo su 
+
+// Ver status
+systemctl status snmpd
+// Dice que esta corriendo
+// Desactivar el demonio para modificar
+systemctl stop snmpd
+systemctl status snmpd
+
+// Entrar al snmpd
+
+// Comentar instruccíones pasados
+// Crear comunidad de seguridad
+// Yo puedo hacer consultas desde mi propia maquina
+com2sec ro_seg localhost ro_4CM1
+// Permito lectura y escritura desde el gestor
+com2sec rw_seg 192.168.10.10/32 rw_4CM1
+
+group ro_grp v1 ro_seg
+group ro_grp v2c ro_seg
+group rw_grp v1 rw_seg
+group rw_grp v2c rw_seg
+
+// Crear vistas:
+view todo included .1 80
+view parte included .1 80
+view parte excluded .1.3.6.1.2.1.16 ff
+
+// Definir accesos, relacionar vistas con grupos creados.
+access ro_grp "" any noauth exact todo none none
+access rw_grp "" any noauth exact todo parte todo
+
+// Modificar objetos de la MIB
+syslocation "Salon 2212"
+syscontact "Profesor ESCOM"
+
+// SALIR
+
+// Levantar snmp
+systemctl start snmp
+// start
+
+snmpwalk -v l -c ro_4CM1 localhost
+// Solo despliega system
+snmpwalk -v l -c ro_4CM1 localhost system
+// Observar cambios
+snmpwalk -v l -c ro_4CM1 localhost system | less
+
+cat snmpd.conf
+// Probar que no funcione el rw_4CM1 porque no estoy en la ip que dije
+snmpwalk -v l -c rw_4CM1 localhost system
+
+// IR A LA OTRA COMPUTADORA, aqui si se pudo
+snmpwalk -v 2c -c rw_4CM1 192.168.20.10
+snmpwalk -v 2c -c rw_4CM1 192.168.20.10 | less
+
+// Mostrar sysLocation.0
+snmpget -v 2c -c rw_4CM1 192.168.20.10 sysLocation.0
+
+// Modificar ese campo, como ya lo cambiamos en el archivo de modificacion,
+// se vuelve inservible
+snmpget -v 2c -c rw_4CM1 192.168.20.10 sysLocation.0 s "Me cambie"
+
+// Modificar sysName
+snmpget -v 2c -c rw_4CM1 192.168.20.10 sysName.0 s "Host de prueba"
+
+// IR A LA OTRA MAQUINA
+// Debe aparecer el nombre que puse desde la otra
+snmpget -v 2c ro_4CM1 localhost sysName.0
+
+// ROUTER
+snmp-server community ro_4CM1 ro
+snmp-server community rw_4CM1 rw
+server location "En el mismo salon"
+snmp-server contact Juan Perez
+exit
+
+
+// REGRESO A LA ULTIMA COMPUTADORA
+// Acceder a la MIB del router
+snmpwalk -v 1 -c rw_4CM1 192.168.10.1 system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

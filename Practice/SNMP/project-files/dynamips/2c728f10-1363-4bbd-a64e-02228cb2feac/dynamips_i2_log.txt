@@ -1,0 +1,57 @@
+Oct 30 07:42:40.887 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 30 07:42:40.887 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 57251.
+Oct 30 07:42:41.325 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 30 07:42:41.325 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Practice\SNMP\project-files\dynamips 
+Oct 30 07:42:41.325 GENERAL: working_dir=C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Practice\SNMP\project-files\dynamips
+Oct 30 07:42:41.325 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Practice\SNMP\project-files\dynamips\5a18136a-1a60-4468-bd26-9bdd7c8a27da 
+Oct 30 07:42:41.325 GENERAL: working_dir=C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Practice\SNMP\project-files\dynamips\5a18136a-1a60-4468-bd26-9bdd7c8a27da
+Oct 30 07:42:41.325 HYPERVISOR: exec_cmd: vm create R1 1 c3600 
+Oct 30 07:42:41.340 VM: VM R1 created.
+Oct 30 07:42:41.340 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5002 
+Oct 30 07:42:41.340 HYPERVISOR: exec_cmd: c3600 get_mac_addr R1 
+Oct 30 07:42:41.340 HYPERVISOR: exec_cmd: c3600 set_chassis R1 3660 
+Oct 30 07:42:41.340 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Oct 30 07:42:41.340 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:42:41.340 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x606071f8 
+Oct 30 07:42:41.356 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/27AGO2019/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Oct 30 07:42:41.356 HYPERVISOR: exec_cmd: c3600 set_mac_addr R1 cc01.2a40.0000 
+Oct 30 07:42:41.356 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Oct 30 07:42:41.356 HYPERVISOR: exec_cmd: vm set_ram R1 192 
+Oct 30 07:42:41.356 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:42:41.356 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 NM-1FE-TX 
+Oct 30 07:42:42.592 HYPERVISOR: exec_cmd: nio create_udp udp-3f7a5794-ee47-4d1b-80f4-97ee03affa83 10004 127.0.0.1 10005 
+Oct 30 07:42:42.920 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 1 udp-3f7a5794-ee47-4d1b-80f4-97ee03affa83 
+Oct 30 07:42:42.920 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:42:43.045 HYPERVISOR: exec_cmd: nio create_udp udp-ef652273-f010-4fb1-b2a4-c960bc9b4e10 10008 127.0.0.1 10009 
+Oct 30 07:42:43.060 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-ef652273-f010-4fb1-b2a4-c960bc9b4e10 
+Oct 30 07:42:43.060 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:42:48.494 HYPERVISOR: exec_cmd: vm create Ghost 0 c3600 
+Oct 30 07:42:48.494 VM: VM Ghost created.
+Oct 30 07:42:48.510 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/27AGO2019/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Oct 30 07:42:48.510 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Oct 30 07:42:48.510 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost 'C:\Users\27AGO2019\Desktop\AbiiSnn\GitHub\Network-Services\Practice\SNMP\project-files\dynamips\c3660-a3jk9s-mz.124-25d.image-192.ghost' 
+Oct 30 07:42:48.510 HYPERVISOR: exec_cmd: vm set_ram Ghost 192 
+Oct 30 07:42:48.510 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Oct 30 07:42:48.510 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Oct 30 07:42:48.525 HYPERVISOR: exec_cmd: vm start Ghost 
+Oct 30 07:42:48.869 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Oct 30 07:42:49.025 VM: VM Ghost shutdown.
+Oct 30 07:42:49.025 VM: VM Ghost destroyed.
+Oct 30 07:42:49.072 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:42:49.072 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Oct 30 07:42:49.072 HYPERVISOR: exec_cmd: vm start R1 
+Oct 30 07:43:20.237 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 30 07:47:50.232 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 30 07:49:56.498 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:49:56.506 HYPERVISOR: exec_cmd: vm stop R1 
+Oct 30 07:49:56.779 VM: VM R1 shutdown.
+Oct 30 07:49:56.783 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 30 07:50:30.187 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:50:30.196 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 30 07:50:30.890 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 30 07:50:30.895 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 30 07:50:30.902 HYPERVISOR: exec_cmd: vm delete R1 
+Oct 30 07:50:30.902 VM: VM R1 destroyed.
+Oct 30 07:50:30.907 HYPERVISOR: exec_cmd: hypervisor stop 
+Oct 30 07:50:31.297 HYPERVISOR: Stopped.
+Oct 30 07:50:31.298 GENERAL: reset done.
